@@ -8,6 +8,16 @@ class Tests {
     @Test
     @Tag("Example")
     fun quadraticRootNumber() {
+        a = 1.0
+        b = 2.0
+        c = 1.0
+        val d = discriminant(a, b, c)
+        if (d < 0) return double.NaN
+        val y1 = (-b + sqrt(d)) / (2 * a)
+        val y2 = (-b - sqrt(d)) / (2 * a)
+        val y3 = max(y1, y2)       // 5
+        if (y3 < 0.0) return Double.NaN // 6
+            return -sqrt(y3)          
         assertEquals(1, quadraticRootNumber(1.0, 2.0, 1.0))
         assertEquals(2, quadraticRootNumber(1.0, 3.0, 2.0))
         assertEquals(0, quadraticRootNumber(1.0, 4.0, 10.0))
